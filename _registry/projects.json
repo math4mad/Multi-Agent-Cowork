@@ -1,0 +1,29 @@
+{
+  "generated": "2026-09-12T00:00:00Z",
+  "projects": [
+    {
+      "id": "research-irene",
+      "name": "Irene / Research",
+      "path": "research-irene",
+      "category": "bench",
+      "role": "source collection",
+      "write_paths": ["papers", "data", "notes"]
+    },
+    {
+      "id": "eda-nikos",
+      "name": "Nikos / EDA",
+      "path": "eda-nikos",
+      "category": "bench",
+      "role": "visual exploration",
+      "write_paths": ["notebooks", "figures", "reports"]
+    },
+    {
+      "id": "audit-thea",
+      "name": "Thea / Audit",
+      "path": "audit-thea",
+      "category": "bench",
+      "role": "verification and sync evidence",
+      "write_paths": ["checks", "runs", "manifests"]
+    }
+  ]
+}

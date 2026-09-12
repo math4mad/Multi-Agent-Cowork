@@ -1,0 +1,19 @@
+{
+  "type": "board_item",
+  "title": "Run lightweight cross-project workhorse cycle",
+  "state": "done",
+  "owner": "m1-16g",
+  "role": "workhorse",
+  "projects": ["research-irene", "eda-nikos", "audit-thea"],
+  "requires": {
+    "trainer_slots": 0,
+    "network": false
+  },
+  "result": {
+    "eda_rows": 5,
+    "audit_checks": 6,
+    "sync_checks": 4,
+    "index_records": 32
+  },
+  "completed_at": "2026-09-12T07:47:53Z"
+}

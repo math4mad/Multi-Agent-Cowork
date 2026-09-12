@@ -1,0 +1,26 @@
+{
+  "generated": "2026-09-12T08:17:20Z",
+  "machines": [
+    {
+      "machine": "m1pro-32g",
+      "state": "quiet"
+    },
+    {
+      "machine": "m1-16g",
+      "state": "working"
+    }
+  ],
+  "projects": [
+    "Research",
+    "EDA",
+    "Audit"
+  ],
+  "queue": {
+    "todo": 0,
+    "doing": 0,
+    "review": 0,
+    "done": 0
+  },
+  "unacked_letters": 0,
+  "last_byte_audit": "2026-09-12T08:52:07.805965+00:00"
+}

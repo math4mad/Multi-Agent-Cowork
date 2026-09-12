@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agora / Cowork Status</title>
+  <style>
+    :root { --ink:#d9f8f4; --muted:#8ca9ad; --paper:#07131b; --blue:#57e8df; --coral:#ff6f91; --gold:#ffd166; --line:rgba(87,232,223,.27); --panel:rgba(8,28,38,.78); }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:radial-gradient(circle at 85% 0%,rgba(255,111,145,.12),transparent 32%),radial-gradient(circle at 8% 35%,rgba(87,232,223,.1),transparent 28%),var(--paper); font-family:Georgia,"Times New Roman",serif; line-height:1.5; }
+    body:before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.28; background-image:linear-gradient(rgba(87,232,223,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(87,232,223,.09) 1px,transparent 1px); background-size:28px 28px; mask-image:linear-gradient(to bottom,black,transparent 82%); }
+    header,main,footer { position:relative; max-width:1120px; margin:auto; padding-left:28px; padding-right:28px; }
+    header { padding-top:44px; }
+    .eyebrow,.label { color:var(--coral); font:700 12px/1.2 "Helvetica Neue",sans-serif; letter-spacing:.14em; text-transform:uppercase; text-shadow:0 0 14px rgba(255,111,145,.48); }
+    h1 { max-width:720px; margin:12px 0 8px; color:#effffc; font-size:clamp(42px,7vw,82px); line-height:.96; font-weight:500; text-shadow:0 0 10px rgba(87,232,223,.55),0 0 36px rgba(87,232,223,.2); }
+    .lead { max-width:670px; margin:0; color:var(--muted); font-size:19px; }
+    .rule { height:1px; margin:35px 0 26px; background:linear-gradient(90deg,var(--coral),var(--blue),transparent); box-shadow:0 0 13px rgba(87,232,223,.55); }
+    h2 { margin:0 0 14px; color:var(--blue); font:700 12px/1.2 "Helvetica Neue",sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .panel { border:1px solid var(--line); background:var(--panel); box-shadow:0 0 0 1px rgba(87,232,223,.04),0 18px 45px rgba(0,0,0,.3),0 0 28px rgba(87,232,223,.08); }
+    .machine { padding:16px 18px; display:flex; justify-content:space-between; gap:12px; transition:transform .2s ease,box-shadow .2s ease; }
+    .machine:hover { transform:translateY(-3px); box-shadow:0 0 22px rgba(87,232,223,.2); }
+    .machine h3,.project h3 { margin:0; color:var(--blue); font-size:24px; font-weight:500; text-shadow:0 0 12px rgba(87,232,223,.35); }
+    .machine p,.project p { margin:4px 0 0; color:var(--muted); font-size:14px; }
+    .state { color:var(--blue); font:700 11px "Helvetica Neue",sans-serif; letter-spacing:.08em; text-transform:uppercase; text-shadow:0 0 10px rgba(87,232,223,.7); }
+    .state:before { content:""; display:inline-block; width:9px; height:9px; margin-right:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 7px var(--gold),0 0 16px rgba(255,209,102,.65); }
+    .state.working { color:#73f7a4; text-shadow:0 0 10px rgba(115,247,164,.7); }
+    .state.working:before { background:#73f7a4; box-shadow:0 0 7px #73f7a4,0 0 16px rgba(115,247,164,.7); }
+    .state.quiet { color:var(--gold); text-shadow:0 0 10px rgba(255,209,102,.7); }
+    .state.quiet:before { background:var(--gold); box-shadow:0 0 7px var(--gold),0 0 16px rgba(255,209,102,.65); }
+    .state.silent { color:#ff526f; text-shadow:0 0 10px rgba(255,82,111,.75); }
+    .state.silent:before { background:#ff526f; box-shadow:0 0 7px #ff526f,0 0 16px rgba(255,82,111,.75); }
+    .project { min-height:200px; padding:21px; display:flex; flex-direction:column; justify-content:space-between; }
+    .number { color:var(--coral); font-size:25px; }
+    .project a { color:var(--coral); font:700 11px "Helvetica Neue",sans-serif; letter-spacing:.08em; text-transform:uppercase; text-shadow:0 0 10px rgba(255,111,145,.5); }
+    .facts { display:grid; grid-template-columns:repeat(4,1fr); }
+    .fact { padding:18px; border-right:1px solid var(--line); }
+    .fact:last-child { border:0; }
+    .value { display:block; color:var(--blue); font-size:28px; text-shadow:0 0 13px rgba(87,232,223,.45); }
+    footer { margin-top:45px; padding-bottom:30px; color:var(--muted); font:12px "Helvetica Neue",sans-serif; }
+    section { margin-top:38px; }
+    @media (max-width:700px) { header,main,footer { padding-left:18px; padding-right:18px; } .grid,.facts { grid-template-columns:1fr; } .fact { border-right:0; border-bottom:1px solid var(--line); } .fact:last-child { border:0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Distributed cowork / live record</div>
+    <h1>Agora, while the work is alive.</h1>
+    <p class="lead">Three shared projects, two machines, and the evidence that connects them. Git decides what is true; this page shows what is now.</p>
+    <div class="rule"></div>
+  </header>
+  <main>
+    <section><h2>Presence / per machine</h2><div class="grid" id="machines"></div></section>
+    <section><h2>The three benches</h2><div class="grid">
+      <article class="panel project"><div><span class="number">01</span><h3>Irene / Research</h3><p>Paper indexes, selected PDFs, sample CSV data, and reproducible document pins.</p></div><a href="#checkpoint">open record -&gt;</a></article>
+      <article class="panel project"><div><span class="number">02</span><h3>Nikos / EDA</h3><p>Exploratory visualizations presented as compact Quarto-style notebook studies.</p></div><a href="eda.html">open data note -&gt;</a></article>
+      <article class="panel project"><div><span class="number">03</span><h3>Thea / Audit</h3><p>Checksums, git flow, sync observations, and inspectable evidence.</p></div><a href="#checkpoint">open record -&gt;</a></article>
+    </div></section>
+    <section id="checkpoint"><h2>Record / current checkpoint</h2><div class="panel facts">
+      <div class="fact"><span class="value" id="todo">0</span><span class="label">todo</span></div>
+      <div class="fact"><span class="value" id="doing">0</span><span class="label">doing</span></div>
+      <div class="fact"><span class="value" id="review">0</span><span class="label">review</span></div>
+      <div class="fact"><span class="value" id="audit">pending</span><span class="label">last byte audit</span></div>
+    </div></section>
+  </main>
+  <footer>Source: <code>docs/status.json</code>. A missing live wire changes latency, never authority. <span id="generated"></span></footer>
+  <script>
+    const fallback = { machines: [], queue: {}, last_byte_audit: null, generated: "unavailable" };
+    function render(status) {
+      document.querySelector("#machines").innerHTML = (status.machines || []).map((machine) => `<article class="panel machine"><div><h3>${machine.machine}</h3><p>presence record</p></div><span class="state ${machine.state}">${machine.state}</span></article>`).join("");
+      ["todo", "doing", "review"].forEach((key) => document.querySelector(`#${key}`).textContent = status.queue?.[key] ?? 0);
+      document.querySelector("#audit").textContent = status.last_byte_audit || "pending";
+      document.querySelector("#generated").textContent = `checkpoint ${status.generated || "unavailable"}`;
+    }
+    fetch(`status.json?ts=${Date.now()}`, { cache: "no-store" }).then((response) => response.ok ? response.json() : fallback).catch(() => fallback).then(render);
+  </script>
+</body>
+</html>

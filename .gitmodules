@@ -1,0 +1,9 @@
+[submodule "research-irene"]
+	path = research-irene
+	url = https://github.com/math4mad/research-irene.git
+[submodule "eda-nikos"]
+	path = eda-nikos
+	url = https://github.com/math4mad/eda-nikos.git
+[submodule "audit-thea"]
+	path = audit-thea
+	url = https://github.com/math4mad/audit-thea.git

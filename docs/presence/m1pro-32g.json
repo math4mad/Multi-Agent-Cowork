@@ -1,0 +1,11 @@
+{
+  "machine": "m1pro-32g",
+  "hwid": "m1pro-32g",
+  "os": "macOS",
+  "state": "quiet",
+  "beat_iso": "2026-09-12T00:00:00Z",
+  "head": "workspace@initial",
+  "free_bytes_gib": 512,
+  "ram_bytes": 34359738368,
+  "running_pids": []
+}

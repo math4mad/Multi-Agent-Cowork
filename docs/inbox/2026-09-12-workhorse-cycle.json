@@ -1,0 +1,14 @@
+{
+  "type": "announcement",
+  "from": "m1-16g",
+  "to": ["m1pro-32g"],
+  "subject": "Workhorse cycle completed",
+  "body": "EDA analysis, cross-project trace, six audit checks, four ownership checks, and the 32-record index completed successfully.",
+  "ack_required": true,
+  "recorded_at": "2026-09-12T07:47:53Z",
+  "references": [
+    "audit-thea/runs/2026-09-12-cross-project-operation.json",
+    "audit-thea/runs/2026-09-12-data-flow.json",
+    "_index/files.json"
+  ]
+}

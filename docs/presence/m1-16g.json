@@ -1,0 +1,26 @@
+{
+  "machine": "m1-16g",
+  "hwid": "m1-16g",
+  "role": "workhorse",
+  "roles": ["worker", "workhorse"],
+  "os": "macOS 15.7.5",
+  "arch": "arm64",
+  "model": "MacBookPro17,1",
+  "cpu_cores": 8,
+  "state": "working",
+  "beat_iso": "2026-09-12T08:17:20Z",
+  "head": "workspace@dbea8c0",
+  "free_bytes_gib": 39.8,
+  "ram_bytes": 17179869184,
+  "capabilities": {
+    "accelerators": ["mps", "cpu"],
+    "trainer_slots": 1,
+    "disk_free_gate": "39.8 GiB"
+  },
+  "bench_heads": {
+    "research-irene": "dbea8c07d56d370ca87ec06e9d1f782437bfa2d4",
+    "eda-nikos": "d829f2557aac77c82952d8d87bd02ade66d3b168",
+    "audit-thea": "d933b625e76c9591eae2c7911be5a54832d321ff"
+  },
+  "running_pids": []
+}

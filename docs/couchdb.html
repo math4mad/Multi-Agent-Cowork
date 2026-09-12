@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CouchDB / LiveBoard</title>
+  <style>
+    :root { --ink:#17222b; --muted:#68757b; --paper:#eef2ef; --panel:#fbfcf8; --blue:#164b63; --coral:#c75b45; --green:#438565; --line:rgba(23,34,43,.15); }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:15px/1.5 "Helvetica Neue",Arial,sans-serif; }
+    header,main,footer { max-width:1180px; margin:auto; padding:0 26px; }
+    header { padding-top:38px; }
+    .eyebrow { color:var(--coral); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:10px 0 8px; color:var(--blue); font:500 clamp(38px,6vw,72px)/.98 Georgia,serif; }
+    .lead { max-width:680px; margin:0; color:var(--muted); font-size:17px; }
+    .toolbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:28px 0 24px; }
+    button { border:0; padding:11px 16px; color:#fff; background:var(--blue); font-weight:700; cursor:pointer; }
+    button:hover { background:var(--coral); }
+    .connection { padding:9px 12px; border:1px solid var(--line); background:var(--panel); color:var(--muted); }
+    .connection[data-state="online"] { color:var(--green); }
+    .connection[data-state="offline"] { color:var(--coral); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .panel { border:1px solid var(--line); background:rgba(251,252,248,.85); box-shadow:0 12px 30px rgba(23,34,43,.08); }
+    .summary { padding:18px; }
+    .summary strong { display:block; color:var(--blue); font:500 31px Georgia,serif; }
+    .summary span { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+    section { margin-top:30px; }
+    h2 { margin:0 0 12px; color:var(--blue); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+    .database { padding:18px; }
+    .database h3 { margin:0 0 8px; color:var(--coral); font:500 24px Georgia,serif; }
+    .database p { margin:0 0 14px; color:var(--muted); }
+    .docs { display:grid; gap:8px; }
+    .doc { padding:10px 12px; border-left:3px solid var(--blue); background:#f0f4f1; font-family:monospace; font-size:12px; overflow-wrap:anywhere; }
+    .empty { padding:18px; color:var(--muted); background:var(--panel); }
+    footer { margin-top:42px; padding-bottom:28px; color:var(--muted); font-size:12px; }
+    @media (max-width:720px) { header,main,footer { padding-left:16px; padding-right:16px; } .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">CouchDB / PouchDB wire observatory</div>
+    <h1>The live record, plainly visible.</h1>
+    <p class="lead">This dashboard reads CouchDB through a same-origin local proxy. It reports the wire's current state separately from the git record.</p>
+    <div class="toolbar"><button id="refresh" type="button">Refresh database state</button><span id="connection" class="connection" data-state="unknown">checking CouchDB...</span></div>
+  </header>
+  <main>
+    <section><h2>Wire summary</h2><div class="grid">
+      <div class="panel summary"><strong id="db-count">-</strong><span>databases</span></div>
+      <div class="panel summary"><strong id="doc-count">-</strong><span>documents sampled</span></div>
+      <div class="panel summary"><strong id="checked-at">-</strong><span>last checked</span></div>
+    </div></section>
+    <section><h2>Databases and recent documents</h2><div id="databases" class="grid"><div class="empty">Reading CouchDB...</div></div></section>
+  </main>
+  <footer>Endpoint: <code>/api</code> → CouchDB at <code>127.0.0.1:5984</code>. A red connection state means the database service is unavailable, not that the git record is lost.</footer>
+  <script>
+    const el = (id) => document.querySelector(`#${id}`);
+    async function get(path) { const response = await fetch(`/api${path}`, { cache: "no-store" }); if (!response.ok) throw new Error(`${response.status}`); return response.json(); }
+    async function refresh() {
+      const connection = el("connection");
+      connection.textContent = "checking CouchDB...";
+      connection.dataset.state = "unknown";
+      try {
+        const names = await get("/_all_dbs");
+        const databases = await Promise.all(names.map(async (name) => {
+          const data = await get(`/${encodeURIComponent(name)}/_all_docs?include_docs=true&limit=8`);
+          return { name, docs: data.rows || [] };
+        }));
+        const sampled = databases.reduce((total, database) => total + database.docs.length, 0);
+        connection.textContent = "CouchDB online";
+        connection.dataset.state = "online";
+        el("db-count").textContent = names.length;
+        el("doc-count").textContent = sampled;
+        el("checked-at").textContent = new Date().toLocaleTimeString();
+        el("databases").innerHTML = databases.length ? databases.map((database) => `<article class="panel database"><h3>${database.name}</h3><p>${database.docs.length} recent document${database.docs.length === 1 ? "" : "s"}</p><div class="docs">${database.docs.length ? database.docs.map((row) => `<div class="doc">${row.id}</div>`).join("") : "<div class=\"empty\">No documents yet.</div>"}</div></article>`).join("") : "<div class=\"empty\">CouchDB is online but has no databases.</div>";
+      } catch (error) {
+        connection.textContent = "CouchDB offline";
+        connection.dataset.state = "offline";
+        el("db-count").textContent = "-";
+        el("doc-count").textContent = "-";
+        el("checked-at").textContent = new Date().toLocaleTimeString();
+        el("databases").innerHTML = `<div class="empty">The proxy could not reach CouchDB. Start CouchDB on port 5984, then refresh.</div>`;
+      }
+    }
+    el("refresh").addEventListener("click", refresh);
+    refresh();
+  </script>
+</body>
+</html>

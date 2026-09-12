@@ -1,0 +1,269 @@
+{
+  "generated": "2026-09-12T07:47:53.284117+00:00",
+  "root": "/Users/lunarcheung/Programming/Multi-Agent-Cowork",
+  "count": 32,
+  "records": [
+    {
+      "_id": "file:AGENTS.md",
+      "type": "file-index",
+      "path": "AGENTS.md",
+      "kind": "law",
+      "bytes": 17671,
+      "sha256": "5a0113f0b48f00ef165af8b18de8b645306acc4757d37cdb9a25e5b204301a2d",
+      "title": "AGENTS.md \u2014 a general protocol for distributed coworker fleets (N machines \u00d7 R repos)"
+    },
+    {
+      "_id": "file:Instance.md",
+      "type": "file-index",
+      "path": "Instance.md",
+      "kind": "md",
+      "bytes": 763,
+      "sha256": "8c000d44281d8d5927b60e172717bccd790c252a7c032809d9ce8879e9f65109",
+      "title": "Instance. number"
+    },
+    {
+      "_id": "file:RealWork.md",
+      "type": "file-index",
+      "path": "RealWork.md",
+      "kind": "md",
+      "bytes": 21015,
+      "sha256": "c2e610d41bb1b580281c2532b2f922bd140b408818f9610e61929b237a53c3ad",
+      "title": "AGENTS.md \u2014 the distributed-coworker sync system (CouchDB + PouchDB over a git record)"
+    },
+    {
+      "_id": "file:_registry/projects.json",
+      "type": "file-index",
+      "path": "_registry/projects.json",
+      "kind": "json",
+      "bytes": 720,
+      "sha256": "bd9a9e83f634f14e498a8cd5cabd2654e374c75814ff024421332c505c46779e"
+    },
+    {
+      "_id": "file:audit-thea/.gitignore",
+      "type": "file-index",
+      "path": "audit-thea/.gitignore",
+      "kind": "file",
+      "bytes": 28,
+      "sha256": "6f10def414127052a245c837bb7851ab060f56369840ddee45fd2dce5f285850"
+    },
+    {
+      "_id": "file:audit-thea/README.md",
+      "type": "file-index",
+      "path": "audit-thea/README.md",
+      "kind": "md",
+      "bytes": 730,
+      "sha256": "1ef9a2679b5a00f120251a29399bea3ea231f5632ff57e95ca6c5ef025d772f4",
+      "title": "Thea / Audit"
+    },
+    {
+      "_id": "file:audit-thea/checks/cross_project_operation.py",
+      "type": "file-index",
+      "path": "audit-thea/checks/cross_project_operation.py",
+      "kind": "py",
+      "bytes": 1996,
+      "sha256": "271f9d30ed142fb94db4cfadfad1fc1096f6b8bd69edc9090bf3bfc354f43a30"
+    },
+    {
+      "_id": "file:audit-thea/checks/data_flow.py",
+      "type": "file-index",
+      "path": "audit-thea/checks/data_flow.py",
+      "kind": "py",
+      "bytes": 2785,
+      "sha256": "dd935f8f505cf2703255e0eaf10edbc636c6f97431c5587a7a7fe10fa60dfb4a"
+    },
+    {
+      "_id": "file:audit-thea/checks/sync_smoke.py",
+      "type": "file-index",
+      "path": "audit-thea/checks/sync_smoke.py",
+      "kind": "py",
+      "bytes": 1278,
+      "sha256": "8f2733c26d1ca98f060d9b0e718f33972d0e2e096942e08489c2b1b5a327641a"
+    },
+    {
+      "_id": "file:audit-thea/runs/2026-09-12-cross-project-operation.json",
+      "type": "file-index",
+      "path": "audit-thea/runs/2026-09-12-cross-project-operation.json",
+      "kind": "json",
+      "bytes": 937,
+      "sha256": "6f285b0cd08de3299da3db10a29592775f8a53fcf1e3741854d2472dad99d761"
+    },
+    {
+      "_id": "file:audit-thea/runs/2026-09-12-csv-handoff.json",
+      "type": "file-index",
+      "path": "audit-thea/runs/2026-09-12-csv-handoff.json",
+      "kind": "json",
+      "bytes": 710,
+      "sha256": "589a79bd847e63292e95aa415542162f91ecfa8252e0e1cf83725c9b5dd299f3"
+    },
+    {
+      "_id": "file:audit-thea/runs/2026-09-12-data-flow.json",
+      "type": "file-index",
+      "path": "audit-thea/runs/2026-09-12-data-flow.json",
+      "kind": "json",
+      "bytes": 588,
+      "sha256": "a8f06d63647999252f28c018098c03cae13eb157b1c86375e1fa4b3ef7d04c11"
+    },
+    {
+      "_id": "file:bin/audit.py",
+      "type": "file-index",
+      "path": "bin/audit.py",
+      "kind": "py",
+      "bytes": 2862,
+      "sha256": "fd0ea9d49b76866325e1a65924582c56ab6e5632bc051f662aea0bb87399e22a"
+    },
+    {
+      "_id": "file:bin/build_index.py",
+      "type": "file-index",
+      "path": "bin/build_index.py",
+      "kind": "py",
+      "bytes": 2569,
+      "sha256": "419f2d06dfc38edd2156799c4932ba1014bea8a53cf6bd71f7dbd75705650d3e"
+    },
+    {
+      "_id": "file:bin/couchdb_dashboard.py",
+      "type": "file-index",
+      "path": "bin/couchdb_dashboard.py",
+      "kind": "py",
+      "bytes": 1828,
+      "sha256": "9d8b82aae95e9be0c498f3c7b62bb8bbdb819a325d7b7f54a97fe2c484aab822"
+    },
+    {
+      "_id": "file:bin/couchdb_ops.py",
+      "type": "file-index",
+      "path": "bin/couchdb_ops.py",
+      "kind": "py",
+      "bytes": 6464,
+      "sha256": "dfc8c11f022b17f8482833d1983a4fc21e5a9bd600134e432323650333a46eaa"
+    },
+    {
+      "_id": "file:docs/couchdb.html",
+      "type": "file-index",
+      "path": "docs/couchdb.html",
+      "kind": "html",
+      "bytes": 5940,
+      "sha256": "a9ca5872e41a117a03c8d58279ac7bddcb289ef4c3322741b2da3b66c441bbda"
+    },
+    {
+      "_id": "file:docs/index.html",
+      "type": "file-index",
+      "path": "docs/index.html",
+      "kind": "html",
+      "bytes": 5900,
+      "sha256": "2a750ffef321ea84237e1b9fdde0c780f2ab205135aa0bf4acf366d516697cd9"
+    },
+    {
+      "_id": "file:docs/presence/m1-16g.json",
+      "type": "file-index",
+      "path": "docs/presence/m1-16g.json",
+      "kind": "json",
+      "bytes": 691,
+      "sha256": "081f2ae8900c8cde1a73f4c70c3959684ca481802f45f813d434c0d1deaa6288"
+    },
+    {
+      "_id": "file:docs/presence/m1pro-32g.json",
+      "type": "file-index",
+      "path": "docs/presence/m1pro-32g.json",
+      "kind": "json",
+      "bytes": 232,
+      "sha256": "b2e86eaab010ccab71454852cff2870014dcc165f73637218dcf785d99eec195"
+    },
+    {
+      "_id": "file:docs/status.json",
+      "type": "file-index",
+      "path": "docs/status.json",
+      "kind": "json",
+      "bytes": 412,
+      "sha256": "ecfc49fb9d4125f401614ad223d33aa592d96b8ed24764b5369fa054a48a8c52"
+    },
+    {
+      "_id": "file:eda-nikos/.gitignore",
+      "type": "file-index",
+      "path": "eda-nikos/.gitignore",
+      "kind": "file",
+      "bytes": 38,
+      "sha256": "f3e3ef80bca03149de61b7f49c4106d14a7087e108e0da2b41c6cb69f73511ae"
+    },
+    {
+      "_id": "file:eda-nikos/README.md",
+      "type": "file-index",
+      "path": "eda-nikos/README.md",
+      "kind": "md",
+      "bytes": 651,
+      "sha256": "2394cafa4e2148ebe804990c2305225252628db9ebc4bfc3c18cbab275dbac4a",
+      "title": "Nikos / EDA"
+    },
+    {
+      "_id": "file:eda-nikos/bin/analyze.py",
+      "type": "file-index",
+      "path": "eda-nikos/bin/analyze.py",
+      "kind": "py",
+      "bytes": 2217,
+      "sha256": "2b93111175dd52f00543beb8ec511c691babcff50f7c50ca9dfeafd9c344ccea"
+    },
+    {
+      "_id": "file:eda-nikos/figures/citations-by-year.svg",
+      "type": "file-index",
+      "path": "eda-nikos/figures/citations-by-year.svg",
+      "kind": "svg",
+      "bytes": 849,
+      "sha256": "643613e877377cf345dc31b3fa08b89f7741fc6a430d9aa57b8c35ca8c86c023"
+    },
+    {
+      "_id": "file:eda-nikos/notebooks/sample-study.qmd",
+      "type": "file-index",
+      "path": "eda-nikos/notebooks/sample-study.qmd",
+      "kind": "qmd",
+      "bytes": 768,
+      "sha256": "1138cdead387f1f2a122163e9caabe2f3415a9c91aafb0a2355ec209b1c3d3b0"
+    },
+    {
+      "_id": "file:eda-nikos/reports/sample-study.json",
+      "type": "file-index",
+      "path": "eda-nikos/reports/sample-study.json",
+      "kind": "json",
+      "bytes": 356,
+      "sha256": "758a61b46b294e5aa71a3257714704ff7bd7e2e56c5b41ebdf7ae0fd9e69e35f"
+    },
+    {
+      "_id": "file:eda-nikos/requests/2026-09-12-papers-csv.json",
+      "type": "file-index",
+      "path": "eda-nikos/requests/2026-09-12-papers-csv.json",
+      "kind": "json",
+      "bytes": 509,
+      "sha256": "1c16b5cd299b8ff32a22192ba4ecccb0bef4339c2ff47d0c2d2d2fef1e8b5ca1"
+    },
+    {
+      "_id": "file:research-irene/.gitignore",
+      "type": "file-index",
+      "path": "research-irene/.gitignore",
+      "kind": "file",
+      "bytes": 38,
+      "sha256": "ce13dd4013238b258094e10614b3dc3ab49dcc10978063ab219af65f4706afb6"
+    },
+    {
+      "_id": "file:research-irene/README.md",
+      "type": "file-index",
+      "path": "research-irene/README.md",
+      "kind": "md",
+      "bytes": 532,
+      "sha256": "f3028d26e031d119841b12c14686b52b792f1632304d6902bf187becca088aae",
+      "title": "Irene / Research"
+    },
+    {
+      "_id": "file:research-irene/data/papers.csv",
+      "type": "file-index",
+      "path": "research-irene/data/papers.csv",
+      "kind": "csv",
+      "bytes": 361,
+      "sha256": "b93157a5ece20065037c542b88aa9f3bb384493189e6b86e1f9d4cb6c70807df"
+    },
+    {
+      "_id": "file:research-irene/papers/index.json",
+      "type": "file-index",
+      "path": "research-irene/papers/index.json",
+      "kind": "json",
+      "bytes": 655,
+      "sha256": "6dd927a7a5b611d1fda8164166447b96009190ca1fb33eefe05bd50084c2611c"
+    }
+  ]
+}
